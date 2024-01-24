@@ -5,6 +5,8 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, Spec
 urlpatterns = [
     path('admin/', admin.site.urls),
     
+    path("data/", include('analytical.urls')),
+    
     # Debug
     path("__debug__/", include('debug_toolbar.urls')),
     # Schema and Docs:
