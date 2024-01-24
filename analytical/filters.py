@@ -6,7 +6,6 @@ class DataListFilter(django_filters.FilterSet):
     filter data using month, revenue, expenses, and profit
     """
     month = django_filters.CharFilter(lookup_expr='icontains')
-    
     class Meta:
         model = Data
         fields = ["month", "revenue", "expenses", "profit"]

@@ -5,8 +5,8 @@ services:
     container_name: data_analytics_api
     volumes:
       - .:/app
-    # env_file:
-    #   - ./api/.env
+    env_file:
+      - ./api/.env
     build: .
     ports:
       - 8000:8000

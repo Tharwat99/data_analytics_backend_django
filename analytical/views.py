@@ -8,14 +8,19 @@ from .utils import handle_csv_file
 
 
 class DataListView(generics.ListAPIView):
+    """
+    DataListView for list all data.
+    """
     queryset = Data.objects.all()
     serializer_class = DataListSerializer
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     filterset_class = DataListFilter
 
 class DataUploadFileView(generics.GenericAPIView):
+    """
+    DataUploadFileView for upload file data.
+    """
     serializer_class = DataUploadFileSerializer
-
 
     def post(self, request, format=None):
         serializer = self.get_serializer(data=request.data)
