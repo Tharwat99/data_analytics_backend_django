@@ -28,11 +28,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", default=True)
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", default="").split(" ")
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
 
-# Application definition
+CORS_ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_ORIGINS", default="").split(" ")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
