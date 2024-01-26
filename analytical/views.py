@@ -1,3 +1,4 @@
+from django.db import transaction
 from rest_framework import generics, status, filters
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
@@ -28,8 +29,9 @@ class DataUploadFileView(generics.GenericAPIView):
         data_file = serializer.validated_data['data_file']
         try:
             data_list = handle_csv_file(data_file)
-            Data.objects.all().delete()
-            Data.objects.bulk_create(data_list)
+            with transaction.atomic():    
+                Data.objects.all().delete()
+                Data.objects.bulk_create(data_list)
             return Response({'message': 'uploaded sucessfully.'}, status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response({'error': 'Error: Error processing the file.'}, status=status.HTTP_400_BAD_REQUEST)
