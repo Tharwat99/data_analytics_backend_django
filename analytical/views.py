@@ -28,6 +28,7 @@ class DataUploadFileView(generics.GenericAPIView):
         data_file = serializer.validated_data['data_file']
         try:
             data_list = handle_csv_file(data_file)
+            Data.objects.all().delete()
             Data.objects.bulk_create(data_list)
             return Response({'message': 'uploaded sucessfully.'}, status=status.HTTP_201_CREATED)
         except Exception as e:

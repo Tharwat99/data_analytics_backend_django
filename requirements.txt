@@ -6,3 +6,4 @@ drf-spectacular
 django-debug-toolbar
 python-dotenv
 django-filter
+django-cors-headers
