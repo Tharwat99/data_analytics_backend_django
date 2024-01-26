@@ -2,13 +2,13 @@ from django.urls import reverse
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.core.files.uploadedfile import SimpleUploadedFile
+from .models import Data
 
 class DataListViewTests(APITestCase):
     def test_data_list_view(self):
         url = reverse('data-list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
 
 class DataUploadFileViewTests(APITestCase):
     url = reverse('data-upload-file')
