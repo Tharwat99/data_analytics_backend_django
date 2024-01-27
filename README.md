@@ -57,7 +57,7 @@ Then makemigrations and migrate models to db:
 
 ```sh
 (env)$ docker-compose run app sh -c "python manage.py makemigrations" 
-(env)$ docker-compose run app sh -c "python manage.py migrate" migrate
+(env)$ docker-compose run app sh -c "python manage.py migrate"
 ```
 ## Tests
 To run the tests:
