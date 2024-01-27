@@ -2,8 +2,7 @@
 Simple Data Analytics Platform that allows users to visualize and analyze data
 
 
-## Normal Setup
-
+## Clone Project
 The first thing to do is to clone the repository:
 
 ```sh
@@ -11,6 +10,7 @@ $ git clone https://github.com/Tharwat99/data_analytics_backend_django.git
 $ cd data_analytics_backend_django
 ```
 
+## Normal Setup
 Create a virtual environment to install dependencies in and activate it:
 
 ```sh
@@ -27,7 +27,7 @@ Then install the dependencies:
 Note the `(env)` in front of the prompt. This indicates that this terminal
 session operates in a virtual environment set up by `virtualenv2`.
 
-Then makemigrations and migrate models to sqlite db:
+Then makemigrations and migrate models to db:
 ```sh
 (env)$ python manage.py makemigrations 
 (env)$ python manage.py migrate
@@ -48,4 +48,20 @@ To run the tests:
 ```
 And navigate to `http://127.0.0.1:8000/`.
 
+## Docker Setup
+
+```sh
+$ docker-compose  up --build
+```
+Then makemigrations and migrate models to db:
+
+```sh
+(env)$ docker-compose run app sh -c "python manage.py makemigrations" 
+(env)$ docker-compose run app sh -c "python manage.py migrate" migrate
+```
+## Tests
+To run the tests:
+```sh
+(env)$ docker-compose run app sh -c "python manage.py test"
+```
 
