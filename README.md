@@ -1,5 +1,5 @@
-# Account-fund-transfers-service-docker
-Small service/app that handles fund transfers between two accounts, and inserts account records files.
+# Data analytics backend Django
+Simple Data Analytics Platform that allows users to visualize and analyze data
 
 
 ## Normal Setup
